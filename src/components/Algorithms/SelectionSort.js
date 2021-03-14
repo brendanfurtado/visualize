@@ -1,11 +1,6 @@
 import React from 'react';
-import * as d3 from 'd3';
-import { rgb } from 'd3';
-import SortAnimation from '../Animations/SortAnimation';
+import SortAnimation from '../../Animations/SortAnimation';
 
-var buttonStyle = {
-  margin: '10px 10px 10px 10px',
-};
 class SelectionSort extends React.Component {
   constructor(props) {
     super(props);
@@ -15,25 +10,26 @@ class SelectionSort extends React.Component {
   async selectionSort() {
     const data = this.props.data;
 
-    for (var j = data.length; j > 0; j--) {
-      for (let i = 0; i < j; i++) {
-        if (data[i] > data[i + 1]) {
-          let temp = data[i];
-          data[i] = data[i + 1];
-          data[i + 1] = temp;
-          // call function here for swap animation...
-          await this.child.current.swapAnimation(
-            data[i],
-            i,
-            data[i + 1],
-            i + 1
-          );
+    for (var i = 0; i < data.length; i++) {
+      var min = i;
+      for (var j = i + 1; j < data.length; j++) {
+        if (data[j] < data[min]) {
+          min = j;
         }
       }
+      if (min != i) {
+        let temp = data[i];
+        data[i] = data[min];
+        data[min] = temp;
+        // call function here for swap animation...
+        await this.child.current.swapAnimation(data[i], i, data[min], min + 1);
+      }
     }
-    console.log('Hello');
   }
   render() {
+    var buttonStyle = {
+      margin: '10px 10px 10px 10px',
+    };
     return (
       <div>
         <SortAnimation ref={this.child} />
