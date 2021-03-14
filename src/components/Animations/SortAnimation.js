@@ -1,33 +1,16 @@
 import React from 'react';
 import * as d3 from 'd3';
 import { rgb } from 'd3';
-
 var durationTime = 1000;
 
 var buttonStyle = {
   margin: '10px 10px 10px 10px',
 };
-
-class BubbleSort extends React.Component {
-  async bubbleSort() {
-    const data = this.props.data;
-
-    for (var j = data.length; j > 0; j--) {
-      for (let i = 0; i < j; i++) {
-        if (data[i] > data[i + 1]) {
-          let temp = data[i];
-          data[i] = data[i + 1];
-          data[i + 1] = temp;
-
-          // call function here for swap animation...
-          await this.swapAnimation(data[i], i, data[i + 1], i + 1); // did not work
-        }
-      }
-    }
-    return console.log(data);
-  }
-
+//Child component for Sorting algorithms
+// var data = this.props.data;
+class SortAnimation extends React.Component {
   swapAnimation(d, i, d1, i1) {
+    console.log(this.props.data);
     var sel = `rect#rect${d}`,
       sel1 = `rect#rect${d1}`;
 
@@ -78,18 +61,8 @@ class BubbleSort extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <button
-          className="ui primary button"
-          style={buttonStyle}
-          onClick={() => this.bubbleSort()}
-        >
-          Bubble Sort
-        </button>
-      </div>
-    );
+    return <div></div>;
   }
 }
 
-export default BubbleSort;
+export default SortAnimation;

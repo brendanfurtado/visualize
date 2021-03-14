@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import styles from '../../css/BarChart.css';
 import { rgb } from 'd3';
 import BubbleSort from '../Algorithms/BubbleSort';
+import SelectionSort from '../Algorithms/SelectionSort';
 
 var data = [];
 var svg = {};
@@ -58,12 +59,18 @@ class BarChart extends React.Component {
   }
 
   render() {
-    const svg_style = {};
+    // const svg_style = {
+    //   display: 'flex',
+    //   // justify-content: "center",
+    //   align-items: "center",
+    //   height: '100vh',
+    // };
 
     return (
       <React.Fragment>
-        <div id={'#' + this.props.id} style={svg_style}>
+        <div id={'#' + this.props.id}>
           <BubbleSort data={this.props.data} />
+          <SelectionSort data={this.props.data} />
         </div>
       </React.Fragment>
     );
