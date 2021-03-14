@@ -1,0 +1,9 @@
+.chartPath {
+  fill: rgb(173, 216, 230);
+}
+body > svg {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
