@@ -4,7 +4,7 @@ import BarChart from './charts/BarChart';
 //[3, 38, 5, 44, 15, 36, 26, 27, 2, 46]
 class App extends React.Component {
   state = {
-    data: [12, 13, 2, 20, 7, 10],
+    data: [12, 14, 13, 12, 2, 20, 7, 10],
     width: 700,
     height: 500,
     id: 'root',

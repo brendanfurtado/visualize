@@ -11,32 +11,27 @@ var buttonStyle = {
 class BubbleSort extends React.Component {
   async bubbleSort() {
     const data = this.props.data;
-
-    for (var j = data.length; j > 0; j--) {
-      for (let i = 0; i < j; i++) {
+    for (var j = data.length; j > 0; j--)
+      for (var i = 0; i < j; i++) {
         if (data[i] > data[i + 1]) {
-          let temp = data[i];
+          var temp = data[i];
           data[i] = data[i + 1];
           data[i + 1] = temp;
-
           // call function here for swap animation...
           await this.swapAnimation(data[i], i, data[i + 1], i + 1); // did not work
         }
       }
-    }
     return console.log(data);
   }
-
   swapAnimation(d, i, d1, i1) {
-    var sel = `rect#rect${d}`,
-      sel1 = `rect#rect${d1}`;
+    var sel = `rect#rect${i}`,
+      sel1 = `rect#rect${i1}`;
 
-    var selText = `text#text${d}`,
-      selText1 = `text#text${d1}`;
+    var selText = `text#text${i}`,
+      selText1 = `text#text${i1}`;
 
     var x1 = d3.select(sel1).attr('x');
     var x = d3.select(sel).attr('x');
-    // d3.select(sel1).transition().duration(1000).style('fill', 'blue').end();
     d3.select(sel1).transition().duration(0).style('fill', 'green');
     d3.select(sel).transition().duration(0).style('fill', 'green');
 
@@ -74,6 +69,14 @@ class BubbleSort extends React.Component {
         .duration(0)
         .style('fill', rgb(173, 216, 230))
         .end(),
+
+      //Swap indexes of rect
+      d3.select(sel1).attr('id', 'rect' + i),
+      d3.select(sel).attr('id', 'rect' + i1),
+
+      //Swap indexes of text labels
+      d3.select(selText1).attr('id', 'text' + i),
+      d3.select(selText).attr('id', 'text' + i1),
     ]);
   }
 
@@ -85,7 +88,7 @@ class BubbleSort extends React.Component {
           style={buttonStyle}
           onClick={() => this.bubbleSort()}
         >
-          Bubble Sort
+          Bubble Sortz
         </button>
       </div>
     );

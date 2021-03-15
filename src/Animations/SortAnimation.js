@@ -17,8 +17,8 @@ class SortAnimation extends React.Component {
 
     var x1 = d3.select(sel1).attr('x');
     var x = d3.select(sel).attr('x');
-    d3.select(sel1).transition().duration(0).style('fill', 'green');
-    d3.select(sel).transition().duration(0).style('fill', 'green');
+    // d3.select(sel1).transition().duration(0).style('fill', 'green');
+    // d3.select(sel).transition().duration(0).style('fill', 'green');
 
     return Promise.all([
       d3.select(sel).transition().duration(durationTime).attr('x', x1).end(),
@@ -39,21 +39,21 @@ class SortAnimation extends React.Component {
         .attr('x', x)
         .end(),
 
-      d3
-        .select(sel1)
-        .transition()
-        .delay(1000)
-        .duration(0)
-        .style('fill', rgb(173, 216, 230))
-        .end(),
+      // d3
+      //   .select(sel1)
+      //   .transition()
+      //   .delay(1000)
+      //   .duration(0)
+      //   .style('fill', rgb(173, 216, 230))
+      //   .end(),
 
-      d3
-        .select(sel)
-        .transition()
-        .delay(1000)
-        .duration(0)
-        .style('fill', rgb(173, 216, 230))
-        .end(),
+      // d3
+      //   .select(sel)
+      //   .transition()
+      //   .delay(1000)
+      //   .duration(0)
+      //   .style('fill', rgb(173, 216, 230))
+      //   .end(),
     ]);
   }
 

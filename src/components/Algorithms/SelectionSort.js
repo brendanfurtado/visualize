@@ -1,5 +1,7 @@
 import React from 'react';
 import SortAnimation from '../../Animations/SortAnimation';
+import * as d3 from 'd3';
+import { rgb } from 'd3';
 
 class SelectionSort extends React.Component {
   constructor(props) {
@@ -13,11 +15,24 @@ class SelectionSort extends React.Component {
     for (var i = 0; i < data.length; i++) {
       var min = i;
       for (var j = i + 1; j < data.length; j++) {
+        var option = `rect#rect${data[j]}`;
+        d3.select(option).transition().duration(0).style('fill', 'green');
+
+        // var sel = `rect#rect${data[i]}`,
+        //   sel1 = `rect#rect${data[min]}`;
+        // d3.select(sel1).transition().duration(0).style('fill', 'green');
+        // d3.select(sel).transition().duration(0).style('fill', 'green');
         if (data[j] < data[min]) {
           min = j;
         }
+        d3.select(option)
+          .transition()
+          .delay(1000)
+          .duration(0)
+          .style('fill', rgb(173, 216, 230));
       }
-      if (min != i) {
+      //Swap
+      if (min !== i) {
         let temp = data[i];
         data[i] = data[min];
         data[min] = temp;
@@ -27,7 +42,7 @@ class SelectionSort extends React.Component {
     }
   }
   render() {
-    var buttonStyle = {
+    const buttonStyle = {
       margin: '10px 10px 10px 10px',
     };
     return (
