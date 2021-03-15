@@ -59,13 +59,6 @@ class BarChart extends React.Component {
   }
 
   render() {
-    // const svg_style = {
-    //   display: 'flex',
-    //   // justify-content: "center",
-    //   align-items: "center",
-    //   height: '100vh',
-    // };
-
     return (
       <React.Fragment>
         <div id={'#' + this.props.id}>

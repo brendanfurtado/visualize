@@ -24,14 +24,17 @@ class BubbleSort extends React.Component {
     return console.log(data);
   }
   swapAnimation(d, i, d1, i1) {
+    //Select index positions of the two rectangles and text being compared
     var sel = `rect#rect${i}`,
       sel1 = `rect#rect${i1}`;
 
     var selText = `text#text${i}`,
       selText1 = `text#text${i1}`;
 
+    //Select the x position for the two selections
     var x1 = d3.select(sel1).attr('x');
     var x = d3.select(sel).attr('x');
+    //Highlight them
     d3.select(sel1).transition().duration(0).style('fill', 'green');
     d3.select(sel).transition().duration(0).style('fill', 'green');
 
@@ -54,6 +57,7 @@ class BubbleSort extends React.Component {
         .attr('x', x)
         .end(),
 
+      //Ending highlight of swap
       d3
         .select(sel1)
         .transition()
