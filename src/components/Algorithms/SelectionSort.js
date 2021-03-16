@@ -24,17 +24,6 @@ class SelectionSort extends React.Component {
       for (var j = i + 1; j < data.length; j++) {
         await this.child.current.highlightAnimation(j);
         if (data[j] < data[min]) {
-          //   if (data[j] < data[inner_min] && i !== 0) {
-          //     d3.select(`rect#rect${inner_min}`)
-          //       .transition()
-          //       .duration(0)
-          //       .style('fill', rgb(173, 216, 230));
-          //   }
-
-          //   d3.select(`rect#rect${j}`)
-          //     .transition()
-          //     .duration(0)
-          //     .style('fill', rgb(173, 216, 230));
           prev_min = min;
           //Found a new min, so de-highlight the previous min rectangle
           if (i !== prev_min) {

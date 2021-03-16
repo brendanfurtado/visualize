@@ -1,5 +1,7 @@
 import React from 'react';
-import BarChart from './charts/BarChart';
+// import BarChart from './charts/BarChart';
+import NavBar from './NavBar';
+import SortingCard from './SortingCard';
 // data: [12, 13, 2, 20, 7, 10],
 //[3, 38, 5, 44, 15, 36, 26, 27, 2, 46]
 //[12, 14, 13, 12, 2, 20, 7, 10]
@@ -16,24 +18,31 @@ class App extends React.Component {
   }
 
   render() {
-    const headerStyle = {
-      backgroundColor: 'DodgerBlue',
-      padding: '10px',
-    };
+    // const headerStyle = {
+    //   backgroundColor: 'DodgerBlue',
+    //   padding: '10px',
+    // };
 
     return (
-      <div className="App" style={headerStyle}>
-        <h2 style={{ color: 'white', textAlign: 'center' }}>
-          Algorithm Visualization in React
-        </h2>
-        <BarChart
+      <div className="App">
+        <NavBar />
+
+        {/* <div class="ui stackable four column grid"> */}
+        {/* <div class="column"> */}
+        <SortingCard />
+        {/* </div> */}
+        {/* <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div> */}
+        {/* </div> */}
+        {/* <BarChart
           data={this.state.data}
           width={this.state.width}
           height={this.state.height}
         />
         <button className="ui primary button" onClick={() => this.rerender()}>
           Reset
-        </button>
+        </button> */}
       </div>
     );
   }

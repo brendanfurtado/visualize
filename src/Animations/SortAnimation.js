@@ -5,7 +5,7 @@ var durationTime = 1000;
 
 //Child component for Sorting algorithms
 class SortAnimation extends React.Component {
-  highlightAnimation(i, i1) {
+  highlightAnimation(i) {
     var sel = `rect#rect${i}`;
     var svg_sel = d3.select(sel);
 
