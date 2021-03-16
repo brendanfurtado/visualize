@@ -3,20 +3,12 @@ import * as d3 from 'd3';
 import { rgb } from 'd3';
 var durationTime = 1000;
 
-var buttonStyle = {
-  margin: '10px 10px 10px 10px',
-};
 //Child component for Sorting algorithms
 class SortAnimation extends React.Component {
   swapAnimation(d, i, d1, i1) {
     //Select index positions of the two rectangles and text being compared
     var sel = `rect#rect${i}`,
       sel1 = `rect#rect${i1}`;
-
-    //i = 0 , i1 = 8
-    // console.log('Swapping index: ' + i + ' with minimum at index: ' + i1);
-    // console.log(sel); //38 i = 0
-    // console.log(sel1); //3 i1 = 8
 
     var selText = `text#text${i}`,
       selText1 = `text#text${i1}`;
@@ -73,22 +65,17 @@ class SortAnimation extends React.Component {
     var selText = `text#text${i}`,
       selText1 = `text#text${i1}`;
 
+    //Select the correct rectangle at the index
     var svg_sel = d3.select(sel);
     var svg_sel1 = d3.select(sel1);
 
+    //Select the correct text corresponding to the same rect above
     var svg_text = d3.select(selText);
     var svg_text1 = d3.select(selText1);
 
-    //Swap indexes of rect
-    // if (
-    //   d3.select(sel1).attr('id') === 'rect' + i ||
-    //   d3.select(sel1).attr('id') === 'rect' + i1
-    // ) {
-    // d3.select(sel1).append('rect').attr('id', `rect${i}`);
-    // d3.select(sel).append('rect').attr('id', `rect${i1}`);
+    //Swap the id's
     svg_sel.attr('id', `rect${i1}`);
     svg_sel1.attr('id', `rect${i}`);
-    // }
 
     //Swap indexes of text labels
     svg_text.attr('id', `text${i1}`);
