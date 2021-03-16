@@ -9,6 +9,9 @@ var buttonStyle = {
 };
 
 class BubbleSort extends React.Component {
+  //   state = {
+  //     sortClicked: false,
+  //   };
   async bubbleSort() {
     const data = this.props.data;
     for (var j = data.length; j > 0; j--)
@@ -92,7 +95,7 @@ class BubbleSort extends React.Component {
           style={buttonStyle}
           onClick={() => this.bubbleSort()}
         >
-          Bubble Sortz
+          Bubble Sort
         </button>
       </div>
     );

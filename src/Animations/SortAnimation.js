@@ -13,6 +13,11 @@ class SortAnimation extends React.Component {
     var sel = `rect#rect${i}`,
       sel1 = `rect#rect${i1}`;
 
+    //i = 0 , i1 = 8
+    // console.log('Swapping index: ' + i + ' with minimum at index: ' + i1);
+    // console.log(sel); //38 i = 0
+    // console.log(sel1); //3 i1 = 8
+
     var selText = `text#text${i}`,
       selText1 = `text#text${i1}`;
 
@@ -58,15 +63,36 @@ class SortAnimation extends React.Component {
         .duration(0)
         .style('fill', rgb(173, 216, 230))
         .end(),
-
-      //Swap indexes of rect
-      d3.select(sel1).attr('id', 'rect' + i),
-      d3.select(sel).attr('id', 'rect' + i1),
-
-      //Swap indexes of text labels
-      d3.select(selText1).attr('id', 'text' + i),
-      d3.select(selText).attr('id', 'text' + i1),
+      this.swapIndexes(i, i1),
     ]);
+  }
+
+  swapIndexes(i, i1) {
+    var sel = `rect#rect${i}`,
+      sel1 = `rect#rect${i1}`;
+    var selText = `text#text${i}`,
+      selText1 = `text#text${i1}`;
+
+    var svg_sel = d3.select(sel);
+    var svg_sel1 = d3.select(sel1);
+
+    var svg_text = d3.select(selText);
+    var svg_text1 = d3.select(selText1);
+
+    //Swap indexes of rect
+    // if (
+    //   d3.select(sel1).attr('id') === 'rect' + i ||
+    //   d3.select(sel1).attr('id') === 'rect' + i1
+    // ) {
+    // d3.select(sel1).append('rect').attr('id', `rect${i}`);
+    // d3.select(sel).append('rect').attr('id', `rect${i1}`);
+    svg_sel.attr('id', `rect${i1}`);
+    svg_sel1.attr('id', `rect${i}`);
+    // }
+
+    //Swap indexes of text labels
+    svg_text.attr('id', `text${i1}`);
+    svg_text1.attr('id', `text${i}`);
   }
 
   render() {

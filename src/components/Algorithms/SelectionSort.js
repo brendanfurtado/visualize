@@ -29,9 +29,19 @@ class SelectionSort extends React.Component {
         data[i] = data[min];
         data[min] = temp;
         // call function here for swap animation...
+        console.log('Swapping index: ' + i + ' with minimum at index: ' + min);
         await this.child.current.swapAnimation(data[i], i, data[min], min);
+        //   await this.child.current.swapIndexes(i, min);
+        // //Swap indexes of rect
+        // d3.select(`rect#rect${min}`).attr('id', 'rect' + i);
+        // d3.select(`rect#rect${i}`).attr('id', 'rect' + min);
+
+        // //Swap indexes of text labels
+        // d3.select(`rect#rect${min}`).attr('id', 'text' + i);
+        // d3.select(`rect#rect${i}`).attr('id', 'text' + min);
       }
     }
+    console.log(data);
   }
   render() {
     const buttonStyle = {

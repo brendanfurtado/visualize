@@ -5,7 +5,7 @@ import styles from '../../css/BarChart.css';
 // import { rgb } from 'd3';
 import BubbleSort from '../Algorithms/BubbleSort';
 import SelectionSort from '../Algorithms/SelectionSort';
-
+import InsertionSort from '../Algorithms/InsertionSort';
 var data = [];
 var svg = {};
 
@@ -64,6 +64,7 @@ class BarChart extends React.Component {
         <div id={'#' + this.props.id}>
           <BubbleSort data={this.props.data} />
           <SelectionSort data={this.props.data} />
+          <InsertionSort data={this.props.data} />
         </div>
       </React.Fragment>
     );
