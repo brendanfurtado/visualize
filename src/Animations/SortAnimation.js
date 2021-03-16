@@ -5,6 +5,21 @@ var durationTime = 1000;
 
 //Child component for Sorting algorithms
 class SortAnimation extends React.Component {
+  highlightAnimation(i, i1) {
+    var sel = `rect#rect${i}`;
+    var svg_sel = d3.select(sel);
+
+    svg_sel.transition().duration(0).style('fill', 'green');
+
+    return Promise.all([
+      svg_sel
+        .transition()
+        .delay(1000)
+        .duration(0)
+        .style('fill', rgb(173, 216, 230))
+        .end(),
+    ]);
+  }
   swapAnimation(d, i, d1, i1) {
     //Select index positions of the two rectangles and text being compared
     var sel = `rect#rect${i}`,
