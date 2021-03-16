@@ -11,17 +11,23 @@ class InsertionSort extends React.Component {
     const data = this.props.data;
     let length = data.length;
 
-    for (var i = 1; i < length; i++) {
-      let key = data[i];
-      let j = i - 1;
-      while (j >= 0 && data[j] > key) {
-        data[j + 1] = data[j];
-        j = j - 1;
+    for (var i = 0; i < length; i++) {
+      for (var j = i; j > 0; j--) {
+        if (data[j] < data[j - 1]) {
+          var temp = data[j];
+          data[j] = data[j - 1];
+          data[j - 1] = temp;
+          await this.child.current.swapAnimation(
+            data[j],
+            j,
+            data[j - 1],
+            j - 1
+          );
+          //Delete else?
+        } else {
+          break;
+        }
       }
-      data[j + 1] = key;
-
-      // call function here for swap animation...
-      await this.child.current.swapAnimation(data[j], key, data[j - 1], j - 1);
     }
     console.log(data);
   }

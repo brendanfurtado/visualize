@@ -2,7 +2,6 @@ import React from 'react';
 import * as d3 from 'd3';
 
 import styles from '../../css/BarChart.css';
-// import { rgb } from 'd3';
 import BubbleSort from '../Algorithms/BubbleSort';
 import SelectionSort from '../Algorithms/SelectionSort';
 import InsertionSort from '../Algorithms/InsertionSort';
